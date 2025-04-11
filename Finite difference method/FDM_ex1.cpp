@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cmath>
 
-//disccretize partial differential equation 
+//disccretize ODE
 //u'' + 2u' - 3u = 9x on the interval [0,1]
 
 //boundaary conditions: u(0) = 1 ,  u(1) = e^-3 +2e - 5 circa 0.486351
@@ -43,12 +43,12 @@ int main()
     //generate b
     Eigen::VectorXd B = 9*x*h*h; 
 
-    //modify first equation to impose the left boundary 
+    //modify first equation to impose the left boundary cosntriction
     A(0,0) = 1; 
     A(0,1) =0; 
     B(0) = ua; 
 
-    //modify second equation to impose right boundary 
+    //modify second equation to impose right boundary cosntriction
     A(N, N) =1; 
     A(N, N-1)=0; 
     B(N) = ub; 
