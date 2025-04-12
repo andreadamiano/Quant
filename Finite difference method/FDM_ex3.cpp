@@ -36,7 +36,7 @@ int main ()
         std::cout << "Stability conditions not satisfied\n"; 
 
     
-    //semi discretization
+    //explicit Euler method
     double r = dt/ (dx*dx); 
     for (int j=0; j<N; ++j)
         for(int i =1; i< M; ++i)

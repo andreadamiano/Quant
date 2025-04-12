@@ -1,9 +1,9 @@
 #include <Eigen/Dense>
 #include <iostream>
 
-//differential equation: u'' + 2u' - 3u = 9x  ,  [0,1]
+//static differential equation (ODE): u'' + 2u' - 3u = 9x  ,  [0,1]
 
-//conditions: u'(0) = -4, u(1) = -2e^-3 + e - 5
+//conditions: u'(0) = -4, u(1) = -2e^-3 + e - 5  (Neumann conditions)
 
 
 int main()

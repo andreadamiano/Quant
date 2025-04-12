@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cmath>
 
-//disccretize ODE
+//disccretise ODE
 //u'' + 2u' - 3u = 9x on the interval [0,1]
 
 //boundaary conditions: u(0) = 1 ,  u(1) = e^-3 +2e - 5 circa 0.486351
