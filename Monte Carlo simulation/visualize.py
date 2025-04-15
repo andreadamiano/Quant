@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 #read the data from CSV
-data = np.loadtxt('GBM.csv')
+data = np.loadtxt('BM.csv')
 n_simulations = data.shape[0]
 T = 1.0
 n_timepoints = data.shape[1]
