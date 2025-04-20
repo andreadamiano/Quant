@@ -14,7 +14,8 @@ void ThomasAlgo(const VectorXd& a, const VectorXd& b, const VectorXd& c, const V
     c_star(0) = c(0)/b(0);
     d_star(0) = d(0)/b(0);
     
-    for (int i = 1; i < size; ++i) {
+    for (int i = 1; i < size; ++i) 
+    {
         double m = 1.0/(b(i) - a(i)*c_star(i-1));
         c_star(i) = c(i)*m;
         d_star(i) = (d(i) - a(i)*d_star(i-1))*m;
@@ -30,11 +31,11 @@ void ThomasAlgo(const VectorXd& a, const VectorXd& b, const VectorXd& c, const V
 int main() {
     std::ofstream file("solution.csv");
     
-    size_t M = 100;         // Space steps
+    size_t M = 50;         // Space steps
     double dx = 1.0/M;      // Space step size
-    double dt = 0.001;      // Time step size
-    double c = 1.0;         // Wave speed
-    size_t N = 1.0/dt;      // Time steps
+    double dt = 0.01;      // Time step size
+    double c = 2.0;         // Wave speed
+    size_t N = 2000;      // Time steps
     const double pi = 3.14159265358979323846;
 
     VectorXd x = VectorXd::LinSpaced(M+1, 0, 1);
@@ -43,50 +44,56 @@ int main() {
     MatrixXd U = MatrixXd::Zero(M+1, N+1);
 
     // Initial conditions
-    for (int i = 0; i < M+1; ++i) {
+    for (int i = 0; i < M+1; ++i) 
+    {
         U(i, 0) = sin(pi*x(i));
     }
 
     // Initial velocity condition (first time step)
     double r = c*dt/dx;
-    for (int i = 1; i < M; ++i) {
+    for (int i = 1; i < M; ++i) 
+    {
         U(i, 1) = U(i, 0) + (r*r/2.0)*(U(i+1, 0) - 2*U(i, 0) + U(i-1, 0));
     }
 
     // Boundary conditions
-    for (int n = 0; n <= N; ++n) {
+    for (int n = 0; n < N+1; ++n) 
+    {
         U(0, n) = 0.0;
         U(M, n) = 0.0;
     }
 
     // Crank-Nicolson coefficients
     double alpha = r*r/4.0;
-    VectorXd a = VectorXd::Constant(M-1, -alpha);    // Lower diagonal
-    VectorXd b = VectorXd::Constant(M-1, 1.0+2.0*alpha); // Main diagonal
-    VectorXd c_vec = VectorXd::Constant(M-1, -alpha);    // Upper diagonal
-    VectorXd d_vec = VectorXd::Zero(M-1);           // Right-hand side
-    VectorXd u_sol = VectorXd::Zero(M-1);           // Solution vector
+    VectorXd a = VectorXd::Constant(M-1, -alpha);    //lower diagonal
+    VectorXd b = VectorXd::Constant(M-1, 1.0+2.0*alpha); //main diagonal
+    VectorXd c_vec = VectorXd::Constant(M-1, -alpha);    //upper diagonal
+    VectorXd d_vec = VectorXd::Zero(M-1);           //right-hand side
+    VectorXd u_sol = VectorXd::Zero(M-1);           //solution vector
 
-    // Time-stepping loop
-    for (int n = 1; n < N; ++n) {
-        // Construct right-hand side
-        for (int i = 1; i < M; ++i) {
-            d_vec(i-1) = alpha*U(i-1, n) + (1.0-2.0*alpha)*U(i, n) + alpha*U(i+1, n);
+    //time-stepping loop (for internal points only)
+    for (int n = 1; n < N; ++n) 
+    {
+        for (int i = 1; i < M; ++i) 
+        {
+            d_vec(i-1) = alpha*U(i-1, n) + (1.0-2.0*alpha)*U(i, n) + alpha*U(i+1, n); //construct right-hand side
         }
 
-        // Solve tridiagonal system
+        //solve tridiagonal system
         ThomasAlgo(a, b, c_vec, d_vec, u_sol);
 
         // Update solution
-        for (int i = 1; i < M; ++i) {
+        for (int i = 1; i < M; ++i) 
+        {
             U(i, n+1) = u_sol(i-1);
         }
     }
 
-    // Output results
-    for (int n = 0; n <= N; n++) {
-        // Write space values for this time step
-        for (int i = 0; i <= M; i++) {
+    //visualize
+    for (int n = 0; n <= N; n++) 
+    {
+        for (int i = 0; i <= M; i++) 
+        {
             file << U(i, n) << " ";
         }
         file << "\n";
