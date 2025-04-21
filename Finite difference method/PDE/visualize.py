@@ -227,5 +227,5 @@ plt.tight_layout(rect=[0, 0, 1, 0.9])
 plt.show()
 
 # #save animation 
-# ani.save('wave_animation.gif', writer='pillow', fps=15)
+ani.save('wave_animation.gif', writer='pillow', fps=15)
 
