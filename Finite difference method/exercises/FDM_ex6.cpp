@@ -24,17 +24,17 @@ public:
     {
         const size_t size = u.size();
 
-        // Check size before any operations
+        //check size before any operations
         if (size < 3) {
             throw std::runtime_error("Vector size too small for finite difference computation.");
         }
 
-        // Apply finite difference scheme
+        //finite differencing 
         for (size_t i = 1; i < size - 1; ++i) {
             dudt(i) = alpha * (u(i - 1) - 2.0 * u(i) + u(i + 1)) / (dx * dx);
         }
 
-        // Boundary conditions
+        //boundary conditions on the time derivative 
         dudt(0) = 0;
         dudt(size - 1) = 0;
     }
@@ -52,27 +52,26 @@ int main()
     constexpr double pi = 3.14159265358979323846;
     const double t_start = 0; 
     
-    // Spatial grid (M+1 points from 0 to 1)
-    Eigen::VectorXd x = Eigen::VectorXd::LinSpaced(M+1, 0, 1);
+    Eigen::VectorXd x = Eigen::VectorXd::LinSpaced(M+1, 0, 1); //spatial grid
     
-    // Solution vector
+    //solution vector
     Eigen::VectorXd u(M+1); 
 
-    // Initial conditions
+    //initial conditions
     for (size_t i = 0; i <= M; ++i) {
         u(i) = sin(pi * x(i)); 
     }
 
-    // Boundary conditions
+    //boundary conditions
     u(0) = 0; 
     u(M) = 0; 
 
-    // Define the ODE system
-    HeatEquationSystem system(alpha, dx); 
+    //ODE system
+    HeatEquationSystem system(alpha, dx); //odeint require a callable object 
 
-    // Setup ODE solver with Eigen support
-    odeint::runge_kutta4<Eigen::VectorXd, double, Eigen::VectorXd, double,
-                         odeint::vector_space_algebra> stepper;
+
+    //setupp ODE solver
+    odeint::runge_kutta4<Eigen::VectorXd, double, Eigen::VectorXd, double, odeint::vector_space_algebra> stepper;
 
     // Time integration
     double t = t_start;

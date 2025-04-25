@@ -216,7 +216,7 @@ MatrixXd SOR_2 (const int& N, const int& M, const double tol = 1e-6, const int m
     double omega = 2/(1+sin(M_PI *h));     
     
 
-    //lef boundary conditions (Dirichelet)
+    //left boundary conditions (Dirichelet)
     // for (int i=0; i< N+1; ++i)
     // {
     //     U(i, 0) = 1000.0 * sin(M_PI * static_cast<double>(i)/N); 
@@ -248,7 +248,9 @@ MatrixXd SOR_2 (const int& N, const int& M, const double tol = 1e-6, const int m
             }
         }
 
-        // //Neumann boundary conditions
+        //Neumann boundary conditions 
+
+        //one sided approximation
         // for (int j = 0; j <= M; ++j)
         //     U(N, j) = U(N-1, j);  // right (ux=0)
 
@@ -258,7 +260,8 @@ MatrixXd SOR_2 (const int& N, const int& M, const double tol = 1e-6, const int m
         // for (int i = 1; i <= N; ++i)
         //     U(i, 0) = U(i, 1);    // bottom (uy=0), skip i=0
 
-        // Update right boundary (i=N, j=1 to M-1)
+        //ghost point approximation
+        //right boundary 
         for (int j = 1; j < M; ++j) {
             double old_val = U(N, j);
             double gs_update = (2.0 * U(N-1, j) + U(N, j+1) + U(N, j-1)) / 4.0;
@@ -266,7 +269,7 @@ MatrixXd SOR_2 (const int& N, const int& M, const double tol = 1e-6, const int m
             max_diff = std::max(max_diff, std::abs(U(N, j) - old_val));
         }
 
-        // Update bottom boundary (i=1 to N-1, j=0)
+        //bottom boundary
         for (int i = 1; i < N; ++i) {
             double old_val = U(i, 0);
             double gs_update = (U(i+1, 0) + U(i-1, 0) + 2.0 * U(i, 1)) / 4.0;
@@ -274,7 +277,7 @@ MatrixXd SOR_2 (const int& N, const int& M, const double tol = 1e-6, const int m
             max_diff = std::max(max_diff, std::abs(U(i, 0) - old_val));
         }
 
-        // Update top boundary (i=1 to N-1, j=M)
+        //top boundary 
         for (int i = 1; i < N; ++i) {
             double old_val = U(i, M);
             double gs_update = (U(i+1, M) + U(i-1, M) + 2.0 * U(i, M-1)) / 4.0;
@@ -282,13 +285,13 @@ MatrixXd SOR_2 (const int& N, const int& M, const double tol = 1e-6, const int m
             max_diff = std::max(max_diff, std::abs(U(i, M) - old_val));
         }
 
-        // Update right-bottom corner (i=N, j=0)
+        //right-bottom corner (righ + bottom Neumann conditions)
         double old_val_corner = U(N, 0);
         double gs_corner = (U(N-1, 0) + U(N, 1)) / 2.0;
         U(N, 0) = old_val_corner * (1.0 - omega) + omega * gs_corner;
         max_diff = std::max(max_diff, std::abs(U(N, 0) - old_val_corner));
 
-        // Update right-top corner (i=N, j=M)
+        //right-top corner (righ + top Neumann conditions)
         old_val_corner = U(N, M);
         gs_corner = (U(N-1, M) + U(N, M-1)) / 2.0;
         U(N, M) = old_val_corner * (1.0 - omega) + omega * gs_corner;

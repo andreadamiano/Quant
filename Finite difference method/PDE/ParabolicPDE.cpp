@@ -77,7 +77,7 @@ MatrixXd CrankNicolson_Multigrid (const int& M, const int& N, const double& alph
     //fill A (sparse matrix)
     Eigen::SparseMatrix<double> A(N-1, N-1);
     std::vector<Eigen::Triplet<double>> triplets;
-    triplets.reserve(3*(N-1) - 2);
+    triplets.reserve(3*(N-1) - 2); // pre allocate memory for 3 diagonals 
 
     for (int i = 0; i < N-1; ++i) {
         triplets.emplace_back(i, i, 1.0 + 2.0 * r); //diagonal

@@ -8,13 +8,13 @@ T = 1.0
 n_timepoints = data.shape[1]
 time = np.linspace(0, T, n_timepoints)
 
-#plot data 
+#plot data    
 plt.figure(figsize=(10,8))
 
 for i in range(n_simulations):
     plt.plot(time, data[i,:], alpha=0.6, linewidth=0.8)
     
-#mean path
+#mean path  
 mean_path = np.mean(data, axis=0)
 plt.plot(time, mean_path, 'k-', linewidth=2, label='Mean path')
     

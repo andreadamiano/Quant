@@ -14,12 +14,12 @@ int main()
 {
     double a =0; 
     double b =1; 
-
-    double ua = 1.0; 
-    double ub = exp(-3) + 2*exp(1)-5; 
-
     size_t N = 4; 
     double h = (b-a)/N; 
+
+    //boundary conditions 
+    double ua = 1.0; 
+    double ub = exp(-3) + 2*exp(1)-5; 
     
     std::cout << "h: " << h << "\n"; 
 

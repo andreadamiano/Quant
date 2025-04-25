@@ -32,7 +32,7 @@ VectorXd GeometricBrownianMotion (const double& T, const int& N, const double& S
 
     for (int i =1; i< N+1; ++i)
     {
-        B(i) = B(i-1)+(mean - 0.5 * std * std)*dt +std*sqrt(dt)*dW(i-1); 
+        B(i) = B(i-1)+(mean - 0.5 * std * std)*dt +std*sqrt(dt)*dW(i-1); //with ito's correction
         W(i) = S0 *exp(B(i)); 
     }
 

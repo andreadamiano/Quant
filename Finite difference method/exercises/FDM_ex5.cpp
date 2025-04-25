@@ -68,7 +68,7 @@ int main ()
         std::cout << "Stability conditions not satisfied "; 
 
     
-    //solve ODE with explicit Euler method
+    //solve ODE system with explicit Euler method
     for (int j=0; j< N; ++j)
         for (int i =1 ; i< M; ++i)
         U(i, j+1) = U(i, j) + dt * (alpha(i)*U(i-1, j) + beta(i)* U(i, j)+ gamma(i)*U(i+1, j)); 
