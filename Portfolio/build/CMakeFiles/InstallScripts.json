@@ -1,0 +1,9 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Projects/Quant/Portfolio/build/cmake_install.cmake",
+		"C:/Projects/Quant/Portfolio/build/_deps/googletest-build/cmake_install.cmake",
+		"C:/Projects/Quant/Portfolio/build/_deps/googletest-build/googletest/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

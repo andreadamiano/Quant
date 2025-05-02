@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Projects\Quant\Portfolio\build\_deps\googletest-subbuild\CMakeFiles\4692d7481f6a61e660fb297bdcee9340\googletest-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Projects\Quant\Portfolio\build\_deps\googletest-subbuild\CMakeFiles\4692d7481f6a61e660fb297bdcee9340\googletest-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Projects\Quant\Portfolio\build\_deps\googletest-subbuild\CMakeFiles\4692d7481f6a61e660fb297bdcee9340\googletest-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Projects\Quant\Portfolio\build\_deps\googletest-subbuild\CMakeFiles\4692d7481f6a61e660fb297bdcee9340\googletest-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Projects\Quant\Portfolio\build\_deps\googletest-subbuild\CMakeFiles\4692d7481f6a61e660fb297bdcee9340\googletest-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Projects\Quant\Portfolio\build\_deps\googletest-subbuild\CMakeFiles\4692d7481f6a61e660fb297bdcee9340\googletest-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Projects\Quant\Portfolio\build\_deps\googletest-subbuild\CMakeFiles\4692d7481f6a61e660fb297bdcee9340\googletest-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Projects\Quant\Portfolio\build\_deps\googletest-subbuild\CMakeFiles\4692d7481f6a61e660fb297bdcee9340\googletest-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Projects\Quant\Portfolio\build\_deps\googletest-subbuild\CMakeFiles\6017b6477544cf8138432949a0dac002\googletest-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Projects\Quant\Portfolio\build\_deps\googletest-subbuild\CMakeFiles\8ffdcbdd198e574d0bc469e2212552cd\googletest-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Projects\Quant\Portfolio\build\_deps\googletest-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Projects\Quant\Portfolio\build\_deps\googletest-subbuild\CMakeFiles\googletest-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{644DC4A3-6E54-3AB9-9C1E-E144F3F2381C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

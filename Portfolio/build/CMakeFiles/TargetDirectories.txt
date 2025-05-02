@@ -1,0 +1,10 @@
+C:/Projects/Quant/Portfolio/build/CMakeFiles/Portfolio_main.dir
+C:/Projects/Quant/Portfolio/build/CMakeFiles/Portfolio_tests.dir
+C:/Projects/Quant/Portfolio/build/CMakeFiles/RUN_TESTS.dir
+C:/Projects/Quant/Portfolio/build/CMakeFiles/ALL_BUILD.dir
+C:/Projects/Quant/Portfolio/build/_deps/googletest-build/CMakeFiles/RUN_TESTS.dir
+C:/Projects/Quant/Portfolio/build/_deps/googletest-build/CMakeFiles/ALL_BUILD.dir
+C:/Projects/Quant/Portfolio/build/_deps/googletest-build/googletest/CMakeFiles/gtest.dir
+C:/Projects/Quant/Portfolio/build/_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir
+C:/Projects/Quant/Portfolio/build/_deps/googletest-build/googletest/CMakeFiles/RUN_TESTS.dir
+C:/Projects/Quant/Portfolio/build/_deps/googletest-build/googletest/CMakeFiles/ALL_BUILD.dir

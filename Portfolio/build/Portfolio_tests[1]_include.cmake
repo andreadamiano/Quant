@@ -1,0 +1,5 @@
+if(EXISTS "C:/Projects/Quant/Portfolio/build/Portfolio_tests[1]_tests.cmake")
+  include("C:/Projects/Quant/Portfolio/build/Portfolio_tests[1]_tests.cmake")
+else()
+  add_test(Portfolio_tests_NOT_BUILT Portfolio_tests_NOT_BUILT)
+endif()
